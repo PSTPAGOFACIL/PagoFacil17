@@ -8,7 +8,7 @@
 
 ### Installation
 
-- Upload file .zip Subir archivo .zip using Prestashop's Backoffice.
+- Upload file .zip  using Prestashop's Backoffice.
 - Leave the decompressed plugin in the "modules/pagofacil17" folder inside the Prestashop installation folder.
 
 
