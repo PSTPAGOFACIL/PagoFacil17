@@ -1,0 +1,33 @@
+[
+    {
+        "name": "pagofacil/php-sdk",
+        "version": "v0.1",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PSTPAGOFACIL/SDK-PHP.git",
+            "reference": "af1fab9b061b37db0382c91ba589b904c2e23ec7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PSTPAGOFACIL/SDK-PHP/zipball/af1fab9b061b37db0382c91ba589b904c2e23ec7",
+            "reference": "af1fab9b061b37db0382c91ba589b904c2e23ec7",
+            "shasum": ""
+        },
+        "time": "2018-07-10T20:49:15+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PagoFacil\\lib\\": "classes"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "Stephanie Piñero",
+                "email": "stephanie@pagofacil.cl"
+            }
+        ]
+    }
+]

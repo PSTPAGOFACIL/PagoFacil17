@@ -1,0 +1,15 @@
+{
+    "name": "pagofacil/php-sdk",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Stephanie Piñero",
+            "email": "stephanie@pagofacil.cl"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {"PagoFacil\\lib\\": "classes"}
+    },
+    "minimum-stability": "dev"
+}

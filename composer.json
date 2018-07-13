@@ -1,0 +1,5 @@
+{
+    "require": {
+        "pagofacil/php-sdk": "^0.1.0"
+    }
+}
