@@ -8,8 +8,10 @@
 
 ### Installation
 
-- Upload file .zip  using Prestashop's Backoffice.
-- Leave the decompressed plugin in the "modules/pagofacil17" folder inside the Prestashop installation folder.
+There are 2 ways to install the plugin:
+
+1) Download the plugin from https://github.com/PSTPAGOFACIL/PagoFacil17, uncompress the file and rename the directory to "pagofacil17", then compres the folder (zip) with "pagofacil17" as name.  Upload file .zip  using Prestashop's Backoffice.
+2) Leave the decompressed plugin in the "modules/pagofacil17" folder inside the Prestashop installation folder.
 
 
 Once this is done, go to the "Modules" section and look for Pago Fácil, then click on the "Install" button
