@@ -41,7 +41,7 @@ class Pagofacil17 extends PaymentModule
         $this->version = '1.0.0';
         $this->author = 'Pago Fácil SPA';
         $this->need_instance = 1;
-        $this->module_key = '';
+        $this->module_key = '79b682dc06172e3bde08c03e0eb6ecd6';
 
         /**
          * Set $this->bootstrap to true if your module is compliant with bootstrap (PrestaShop 1.6)
