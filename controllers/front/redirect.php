@@ -89,9 +89,9 @@ class Pagofacil17RedirectModuleFrontController extends ModuleFrontController
         $url = Tools::getShopProtocol() .
           $shop->domain . $shop->getBaseURI();
         $return_url = $url .
-          'index.php?controller=confirmation&id_cart=' .
-          $cart->id . '&id_module=' . $this->module->id . '&id_order=' .
-          $order_id . '&key=' . $customer->secure_key;
+         'index.php?controller=order-confirmation&id_cart=' .
+         $cart->id . '&id_module=' . $this->module->id . '&id_order=' .
+         $order_id . '&key=' . $customer->secure_key;
 
         $request = new Request();
         $request->account_id = $token_service;

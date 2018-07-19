@@ -272,17 +272,18 @@ class Pagofacil17 extends PaymentModule
             return;
         }
 
-        $order = $params['objOrder'];
+        $order = $params['order'];
 
         if ($order->getCurrentOrderState()->id != Configuration::get('PS_OS_ERROR')) {
             $this->smarty->assign('status', 'ok');
         }
 
+        $currency = new Currency($params['cart']->id_currency);
         $this->smarty->assign(array(
             'id_order' => $order->id,
             'reference' => $order->reference,
             'params' => $params,
-            'total' => Tools::displayPrice($params['total_to_pay'], $params['currencyObj'], false),
+            'total' => Tools::displayPrice($order->total_paid, $currency, false),
         ));
 
         return $this->display(__FILE__, 'views/templates/hook/confirmation.tpl');

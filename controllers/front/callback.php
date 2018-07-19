@@ -105,6 +105,23 @@ class PagoFacil17CallbackModuleFrontController extends ModuleFrontController
             $header = $protocol  . ' 400 Bad Request';
             header($header);
         }
+
+        if ($response['x_result'] == "completed") {
+            //Validate amount of order
+            if (round($order->total_paid) != $response["x_amount"]) {
+                $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
+                $header = $protocol  . ' 400 Bad Request';
+                header($header);
+            }
+            self::paymentCompleted($order);
+            $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
+            $header = $protocol  . ' 200 OK';
+            header($header);
+        } else {
+            $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
+            $header = $protocol  . ' 200 OK';
+            header($header);
+        }
     }
 
     public static function paymentCompleted($order)
