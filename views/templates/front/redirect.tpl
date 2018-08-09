@@ -22,24 +22,12 @@
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-
-<div>
-	<h3>{l s='Redirect your customer' mod='pagofacil17'}:</h3>
-	<ul class="alert alert-info">
-			<li>{l s='This action should be used to redirect your customer to the website of your payment processor' mod='pagofacil17'}.</li>
-	</ul>
-	
-	<div class="alert alert-warning">
-		{l s='You can redirect your customer with an error message' mod='pagofacil17'}:
-		<a href="{$link->getModuleLink('pagofacil17', 'redirect', ['action' => 'error'], true)|escape:'htmlall':'UTF-8'}" title="{l s='Look at the error' mod='pagofacil17'}">
-			<strong>{l s='Look at the error message' mod='pagofacil17'}</strong>
-		</a>
+{extends file='page.tpl'} 
+{block name='content'}
+	<div>
+		<h3>{l s='Redirect your customer' mod='pagofacil17'}:</h3>
+		<ul class="alert alert-info">
+				<li>{l s='In a few moments you will be redirected to the Pago Facil page to make your payment' mod='pagofacil17'}.</li>
+		</ul>
 	</div>
-	
-	<div class="alert alert-success">
-		{l s='You can also redirect your customer to the confirmation page' mod='pagofacil17'}:
-		<a href="{$link->getModuleLink('pagofacil17', 'confirmation', ['cart_id' => $cart_id, 'secure_key' => $secure_key], true)|escape:'htmlall':'UTF-8'}" title="{l s='Confirm' mod='pagofacil17'}">
-			<strong>{l s='Go to the confirmation page' mod='pagofacil17'}</strong>
-		</a>
-	</div>
-</div>
+{/block}

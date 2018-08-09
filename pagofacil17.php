@@ -207,8 +207,10 @@ class Pagofacil17 extends PaymentModule
                     ),
                     ),
                     array(
+                    'type' => 'label',
                     'label' => '',
                     'desc' => $this->l('Pago Fácil - https://www.pagofacil.cl'),
+                    'name' => 'label'
                     )
                     ),
                     'submit' => array(
@@ -284,6 +286,7 @@ class Pagofacil17 extends PaymentModule
             'reference' => $order->reference,
             'params' => $params,
             'total' => Tools::displayPrice($order->total_paid, $currency, false),
+            'shop_name' => Configuration::get('PS_SHOP_NAME')
         ));
 
         return $this->display(__FILE__, 'views/templates/hook/confirmation.tpl');

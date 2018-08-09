@@ -89,9 +89,9 @@ class Pagofacil17RedirectModuleFrontController extends ModuleFrontController
         $url = Tools::getShopProtocol() .
           $shop->domain . $shop->getBaseURI();
         $return_url = $url .
-         'index.php?controller=order-confirmation&id_cart=' .
-         $cart->id . '&id_module=' . $this->module->id . '&id_order=' .
-         $order_id . '&key=' . $customer->secure_key;
+          'index.php?controller=order-confirmation&id_cart=' .
+          $cart->id . '&id_module=' . $this->module->id . '&id_order=' .
+          $order_id . '&key=' . $customer->secure_key;
 
         $request = new Request();
         $request->account_id = $token_service;
@@ -110,6 +110,8 @@ class Pagofacil17RedirectModuleFrontController extends ModuleFrontController
         $transaction->environment = $environment;
         $transaction->setToken($token_secret);
         $transaction->initTransaction($request);
+
+        return $this->setTemplate('module:pagofacil17/views/templates/front/redirect.tpl');
     }
 
     protected function displayError($message, $description = false)
