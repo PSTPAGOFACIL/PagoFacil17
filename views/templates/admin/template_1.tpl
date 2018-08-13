@@ -80,19 +80,6 @@
 
         <hr/>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h4>{l s='Accept payments with the most popular media in the country' mod='pagofacil17'}</h4>
-
-                <div class="row">
-                    <img src="{$module_dir|escape:'html':'UTF-8'}views/img/template_1_cards.png" class="col-md-6"
-                         id="payment-logo"/>
-                    <div class="col-md-6">
-                        <h6 class="text-branded">{l s='For transactions in Chilean pesos (CLP).' mod='pagofacil17'}</h6>
-                        <p class="text-branded">{l s='Questions? : ' mod='pagofacil17'} <a target="_blank" href="mailto:info@pagofacil.cl">info@pagofacil.cl</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
