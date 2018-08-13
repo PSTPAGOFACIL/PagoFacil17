@@ -20,7 +20,7 @@ Once this is done, go to the "Modules" section and look for Pago Fácil, then cl
 
 When the plugin is installed, click on the "Configure" button that appears on the right side of the plugin. The following view will be displayed:
 
-![Screenshot](readme/config.png)
+![Screenshot](views/img/config.png)
 
 - You must select the environment in which you want to work, placing if you want to work in a development environment.
 - Add the "Token Service" and "Token Secret" that provides Pago Fácil
