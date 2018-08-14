@@ -120,9 +120,11 @@ class Pagofacil17 extends PaymentModule
          */
         if (((bool)Tools::isSubmit('submitPagofacil17Module')) == true) {
             if ($this->postProcess()) {
-                return $this->displayConfirmation($this->l('Your data was saved successfully')).$output.$this->renderForm();
+                $m =  $this->displayConfirmation($this->l('Your data was saved successfully')).$output;
+                return $m.$this->renderForm();
             } else {
-                return $output.$this->displayError($this->l('At least one of the fields is incorrect, please check')).$this->renderForm();
+                $m = $output.$this->displayError($this->l('At least one of the fields is incorrect, please check'));
+                return $m.$this->renderForm();
             }
         }
 
