@@ -8,6 +8,8 @@ $_MODULE['<{pagofacil17}prestashop>pagofacil17_230a6f759eef129edf85eb09eb2b3d97'
 $_MODULE['<{pagofacil17}prestashop>pagofacil17_95229b6dcb0b35e3d12b0177cacdf47a'] = 'Token Service y Token Secret deben configurarse para continuar.';
 $_MODULE['<{pagofacil17}prestashop>pagofacil17_92d4773a9f32fc3333cb8238471cf763'] = 'Debes habilitar la extensión cURL en tu servidor para instalar este módulo';
 $_MODULE['<{pagofacil17}prestashop>pagofacil17_cdbe2f170711683cb6624cf9c509cc99'] = 'Este módulo no está disponible en tu país';
+$_MODULE['<{pagofacil17}prestashop>pagofacil17_f9d447368cf2cfc2d0d0a6d12d27cbac'] = 'Tus datos se guardaron exitosamente';
+$_MODULE['<{pagofacil17}prestashop>pagofacil17_c85d4f59b443b17142f400e6d27e3086'] = 'Al menos uno de los campos es incorrecto, por favor verificar';
 $_MODULE['<{pagofacil17}prestashop>pagofacil17_f4f70727dc34561dfde1a3c529b6205c'] = 'Configuraciones';
 $_MODULE['<{pagofacil17}prestashop>pagofacil17_d48d0361afb8ec8ec81e06554f0cbc39'] = 'Token Service';
 $_MODULE['<{pagofacil17}prestashop>pagofacil17_e2e6c78dd4fa50fbf04a0de2c070c7a8'] = 'Token Secret';

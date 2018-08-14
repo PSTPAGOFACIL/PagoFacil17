@@ -112,16 +112,20 @@ class Pagofacil17 extends PaymentModule
      */
     public function getContent()
     {
+        $this->context->smarty->assign('module_dir', $this->_path);
+
+        $output = $this->context->smarty->fetch($this->local_path.'views/templates/admin/configure.tpl');
         /**
          * If values have been submitted in the form, process.
          */
         if (((bool)Tools::isSubmit('submitPagofacil17Module')) == true) {
-            $this->postProcess();
+            if ($this->postProcess()) {
+                return $this->displayConfirmation($this->l('Your data was saved successfully')).$output.$this->renderForm();
+            } else {
+                return $output.$this->displayError($this->l('At least one of the fields is incorrect, please check')).$this->renderForm();
+            }
         }
 
-        $this->context->smarty->assign('module_dir', $this->_path);
-
-        $output = $this->context->smarty->fetch($this->local_path.'views/templates/admin/configure.tpl');
 
         return $output.$this->renderForm();
     }
@@ -239,10 +243,16 @@ class Pagofacil17 extends PaymentModule
     protected function postProcess()
     {
         $form_values = $this->getConfigFormValues();
-
+        $all_values = true;
         foreach (array_keys($form_values) as $key) {
-            Configuration::updateValue($key, Tools::getValue($key));
+            if (empty(Tools::getValue($key))) {
+                $all_values = false;
+            } else {
+                Configuration::updateValue($key, Tools::getValue($key));
+            }
         }
+
+        return $all_values;
     }
 
     /**
