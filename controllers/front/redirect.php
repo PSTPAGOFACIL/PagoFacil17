@@ -35,6 +35,7 @@ class Pagofacil17RedirectModuleFrontController extends ModuleFrontController
      */
     public function postProcess()
     {
+        error_log('postProcess redirect');
         $cart = $this->context->cart;
         if ($cart->id_customer == 0
         || $cart->id_address_delivery == 0 || $cart->id_address_invoice == 0 || !$this->module->active) {
@@ -84,15 +85,9 @@ class Pagofacil17RedirectModuleFrontController extends ModuleFrontController
         //getting order_id
         $order_id = Order::getOrderByCartId((int)($cart->id));
 
-        // Complete URL on order confirmation page
-        $shop = new Shop(Configuration::get('PS_SHOP_DEFAULT'));
-        $url = Tools::getShopProtocol() .
-          $shop->domain . $shop->getBaseURI();
-        $return_url = $url .
-          'index.php?controller=order-confirmation&id_cart=' .
+        $return_url = $this->context->link->getModuleLink('pagofacil17', 'confirmation') . '?id_cart=' .
           $cart->id . '&id_module=' . $this->module->id . '&id_order=' .
           $order_id . '&key=' . $customer->secure_key;
-
         $request = new Request();
         $request->account_id = $token_service;
         $request->amount = round($cart_amount);

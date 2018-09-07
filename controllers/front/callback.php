@@ -31,14 +31,18 @@ class PagoFacil17CallbackModuleFrontController extends ModuleFrontController
 
     public function initContent()
     {
+        parent::initContent();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->procesarCallback($_POST);
             $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
             $header = $protocol  . ' 200 OK';
             header($header);
+
+            error_log("fin if");
         } else {
             error_log("NO SE INGRESA POR POST (405)");
         }
+        $this->setTemplate('module:pagofacil17/views/templates/front/redirect.tpl');
     }
 
     protected function procesarCallback($response)
@@ -83,28 +87,36 @@ class PagoFacil17CallbackModuleFrontController extends ModuleFrontController
         if ($transaction->validate($response)) {
             error_log("FIRMAS CORRESPONDEN");
             //Validate order state
+           
             if ($response['x_result'] == "completed") {
                 //Validate amount of order
                 if (round($order->total_paid) != $response["x_amount"]) {
+                    error_log('montos iguales');
                     $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
                     $header = $protocol  . ' 400 Bad Request';
                     header($header);
+                    return "";
                 }
                 self::paymentCompleted($order);
                 $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
                 $header = $protocol  . ' 200 OK';
                 header($header);
+                return "";
             } else {
                 $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
                 $header = $protocol  . ' 200 OK';
                 header($header);
+                return "";
             }
         } else {
             error_log("FIRMAS NO CORRESPONDEN");
             $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
             $header = $protocol  . ' 400 Bad Request';
             header($header);
+            return "";
         }
+        
+        //return  header($header);
     }
 
     public static function paymentCompleted($order)
